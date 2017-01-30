@@ -27,7 +27,7 @@ app.get('/game/:gamenumber', function(req, res){
 app.post('/game/:gamenumber/player/:player/play/:squarenumber', function(req, res){
   res.setHeader('Content-Type', 'text/plain');
   // play square :squarenumber, for player :player in game :gamenumber
-  // return code state ?? 1 for ok, -1 for square not playable, -2 for error ?
+  // return code state ?? 1 for ok, -1 for not this player's turn, -2 for square not playable, -3 for error ?
   res.end('1');
 })
 
