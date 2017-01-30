@@ -1,0 +1,35 @@
+{
+  "name": "othello-api",
+  "version": "0.0.5",
+  "description": "Api for 2 player othello games",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsauvajon/othello-api.git"
+  },
+  "keywords": [
+    "othello",
+    "reversi",
+    "api",
+    "rest",
+    "restful",
+    "nodejs",
+    "node",
+    "expressjs",
+    "express"
+  ],
+  "author": "Thomas Sauvajon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsauvajon/othello-api/issues"
+  },
+  "homepage": "https://github.com/tsauvajon/othello-api#readme"
+}
