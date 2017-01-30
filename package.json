@@ -1,6 +1,6 @@
 {
   "name": "othello-api",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Api for 2 player othello games",
   "main": "server.js",
   "dependencies": {
