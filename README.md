@@ -8,7 +8,7 @@
  list of open games
 
  #### /game/:gamenumber
- game :gamenumber infos
+ game :gamenumber infos and state
 
  ### POST :
  #### /game/:gamenumber

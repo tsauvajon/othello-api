@@ -20,7 +20,7 @@ app.post('/game/:gamenumber', function(req, res){
 
 app.get('/game/:gamenumber', function(req, res){
   res.setHeader('Content-Type', 'application/json');
-  // return the game state
+  // returns the game state
   res.end('');
 })
 
