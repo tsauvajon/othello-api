@@ -27,7 +27,7 @@
     "express"
   ],
   "author": "Thomas Sauvajon",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/tsauvajon/othello-api/issues"
   },
