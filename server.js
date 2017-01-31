@@ -32,11 +32,12 @@ app.get('/', function(req, res){
   .use(function(req, res, next){
     res.setHeader('Content-Type', 'text/plain');
     res.send(404, 'Not found !');
-})
+});
+
 
 var server = app.listen(8081, function () {
   var host = server.address().address
   var port = server.address().port
-  console.log("Othello running at http://%s:%s", host, port)
+  console.log("Othello running on port %s", port)
 
-})
+});
