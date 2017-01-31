@@ -13,6 +13,8 @@
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io.connect('http://localhost:8082');
+            var pseudo = prompt('Pseudo ?');
+            socket.emit('nouveau', pseudo);
             socket.on('message', function(message) {
               alert('Message reçu depuis le serveur : ' + message);
             });
