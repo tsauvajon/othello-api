@@ -23,36 +23,41 @@ router.get('/', function(req, res){
 router.route('/games')
   .get(function(req, res){
   res.setHeader('Content-Type', 'application/json');
-  // return a list of open games
-  res.json('');
+  Game.find(function(err, games) {
+    if (err)
+      res.send(err);
+      res.json(games);
+  });
 });
 
-router.route('/games/:gamenumber')
+router.route('/games/:name')
   .post(function(req, res){
   res.setHeader('Content-Type', 'application/json');
-  // creates a new game at :gamenumber
+  // creates a new game
   var game = new Game();
-  game.id = req.params.gamenumber;
+  game.name = req.params.name;
   game.squares = Array(64).fill(null);
   game.xIsNext = false;
   game.stepNumber = 0;
   game.save(function(err) {
     if (err)
-      res.status(503).send(err);
-      res.json(game);
+      res.status(503).json(err);
+    res.json(game);
   });
-})
-  .get(function(req, res){
+});
+  routeur.route('/games/:gameid').get(function(req, res){
   res.setHeader('Content-Type', 'application/json');
-  if (req.params.gamenumber){
-
-  }
+    Game.findById(req.params.gameid, function(err, game) {
+      if (err)
+        res.send(err);
+      res.json(game);
+    });
   // returns the game state
-  res.json({ code: 404, message: 'Game not found'});
+  // res.json({ code: 404, message: 'Game not found'});
 });
 //   .get('/players/:player/play/:squarenumber', function(req, res){
 //   res.setHeader('Content-Type', 'text/plain');
-//   // plays square :squarenumber, for player :player in game :gamenumber
+//   // plays square :squarenumber, for player :player in game :gameid
 //   // return code state ?? 1 for ok, -1 for not this player's turn, -2 for square not playable, -3 for error ?
 //   res.json('1');
 // })
@@ -76,4 +81,5 @@ var server = app.listen(process.env.PORT || 8081, function () {
 
 
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://127.0.0.1:27017')
 var Game = require('./app/models/game');
