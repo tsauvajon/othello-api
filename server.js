@@ -45,16 +45,45 @@ router.route('/games/:name')
     res.json(game);
   });
 });
-  routeur.route('/games/:gameid').get(function(req, res){
-  res.setHeader('Content-Type', 'application/json');
+  router.route('/games/:gameid')
+  .get(function(req, res){
+    res.setHeader('Content-Type', 'application/json');
     Game.findById(req.params.gameid, function(err, game) {
       if (err)
         res.send(err);
       res.json(game);
     });
+  })
+  .put(function(req, res) {
+    Game.findById(req.params.gameid, function(err, game) {
+      if (err)
+        res.send(err);
+      if (req.body.squares)
+        game.squares = req.body.squares;
+      if (req.body.xIsNext)
+        game.xIsNext = req.body.xIsNext;
+      if (req.body.stepNumber)
+        game.xIsNext = req.body.stepNumber;
+
+      game.save(function(err) {
+        if (err)
+          res.send(err);
+        res.json({ game });
+      });
+    });
+  })
+  .delete(function(req, res) {
+    Game.remove({
+      _id: req.params.gameid
+    }, function (err, game) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'Deleted !' });
+    });
+  });
   // returns the game state
   // res.json({ code: 404, message: 'Game not found'});
-});
+// });
 //   .get('/players/:player/play/:squarenumber', function(req, res){
 //   res.setHeader('Content-Type', 'text/plain');
 //   // plays square :squarenumber, for player :player in game :gameid
