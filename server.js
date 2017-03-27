@@ -102,11 +102,11 @@ router.route('/games/:gameid')
 //   });
 
 var server = app.listen(process.env.PORT || 8081, function () {
-  var host = server.address().address
-  var port = server.address().port
-  console.log("Othello API running on port %s", port)
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log("Othello API running on port %s", port);
 });
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017')
+mongoose.connect('mongodb://127.0.0.1:27017');
 var Game = require('./app/models/game');
